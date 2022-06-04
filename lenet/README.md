@@ -6,7 +6,9 @@ dataset.
 
 Available implementations:
 
-* [basic approximation of the LeNet model in Keras](Basic_LeNet_in_Keras.ipynb)
+| Implementation | GitHub preview<br/>(readonly) | Colab | Binder |
+| -------------- | ----------------------------- | ----- | ------ |
+| Basic | [GitHub][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
 
 Our implementation is based on the following paper:
 
@@ -25,4 +27,9 @@ See also:
 
 * [LeNet on Wikipedia](https://en.wikipedia.org/wiki/LeNet)
 
+[colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
+[binder-badge]: https://static.mybinder.org/badge_logo.svg
+[github-basic]: Basic_LeNet_in_Keras.ipynb
+[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/Basic_LeNet_in_Keras.ipynb
+[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/Basic_LeNet_in_Keras.ipynb
 [lenet-google-scholar]: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WLN3QrAAAAAJ&citation_for_view=WLN3QrAAAAAJ:u5HHmVD_uO8C
