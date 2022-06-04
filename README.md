@@ -6,7 +6,7 @@ results.
 
 Current implementations:
 
-* [LeNet](lenet)
+* [LeNet](lenet) (1998)
 
 ## Contributing
 
