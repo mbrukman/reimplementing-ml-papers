@@ -6,10 +6,10 @@ dataset.
 
 Available implementations:
 
-| Implementation | Library | GitHub preview<br/>(readonly) | Colab | Binder |
-| -------------- | ------- | ----------------------------- | ----- | ------ |
-| Basic impl using MaxPool2D and ReLU | Keras | [GitHub][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
-| Subsampling layer + LeNet activation | Keras | [GitHub][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
+|     | Description    | Library | Pooling<br/>layer | Activation | GitHub<br/>(readonly) | Colab | Binder |
+|:---:| -------------- |:-------:|:-----------------:|:----------:|:---------------------:|:-----:|:------:|
+| v1 | Basic impl | Keras | MaxPool2D | ReLU | [View][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
+| v2 | Custom layer + activation | Keras | Subsampling | Custom | [View][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
 
 Our implementation is based on the following paper:
 
@@ -31,12 +31,12 @@ See also:
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
 
-[github-basic]: Basic_LeNet_in_Keras.ipynb
-[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/Basic_LeNet_in_Keras.ipynb
-[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/Basic_LeNet_in_Keras.ipynb
+[github-basic]: LeNet_v1_basic_impl_in_Keras.ipynb
+[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_v1_basic_impl_in_Keras.ipynb
+[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_v1_basic_impl_in_Keras.ipynb
 
-[github-subsampling]: LeNet_with_Subsampling_in_Keras.ipynb
-[colab-subsampling]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_with_Subsampling_in_Keras.ipynb
-[binder-subsampling]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_with_Subsampling_in_Keras.ipynb
+[github-subsampling]: LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
+[colab-subsampling]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
+[binder-subsampling]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
 
 [lenet-google-scholar]: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WLN3QrAAAAAJ&citation_for_view=WLN3QrAAAAAJ:u5HHmVD_uO8C
