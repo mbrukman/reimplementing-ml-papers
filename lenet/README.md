@@ -6,16 +6,16 @@ Neural Network (CNN) used for character recognition, trained and tested with the
 
 Available implementations:
 
-|     | Description    | Library | Pooling<br/>layer | Activation | GitHub<br/>(readonly) | Colab | Binder |
-|:---:| -------------- |:-------:|:-----------------:|:----------:|:---------------------:|:-----:|:------:|
-| v1 | Basic impl | Keras | MaxPool2D | ReLU | [View][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
-| v2 | Custom layer + activation | Keras | Subsampling | Custom | [View][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
+|     | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Library | GitHub<br/>(readonly) | Colab | Binder |
+|:---:| -------------- |:-------------------------:|:-----------------:|:----------:|:-----------------:|:-------:|:---------------------:|:-----:|:------:|
+| v1 | Basic impl | [0, 1] | MaxPool2D | ReLU | 0.001 | Keras | [View][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
+| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | custom | 0.001 | Keras | [View][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
 
 Our implementation is based on the following paper:
 
-Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner. Gradient-based learning applied
-to document recognition. _Proceedings of the IEEE,_ 86(11):2278-2324, November
-1998.
+* Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick Haffner. Gradient-based
+  learning applied to document recognition. _Proceedings of the IEEE,_
+  86(11):2278-2324, November 1998.
 
 The paper is available via:
 
