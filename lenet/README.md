@@ -8,8 +8,8 @@ Available implementations:
 
 |     | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Library | GitHub<br/>(readonly) | Colab | Binder |
 |:---:| -------------- |:-------------------------:|:-----------------:|:----------:|:-----------------:|:-------:|:---------------------:|:-----:|:------:|
-| v1 | Basic impl | [0, 1] | MaxPool2D | ReLU | 0.001 | Keras | [View][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
-| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | custom | 0.001 | Keras | [View][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
+| v1 | Basic impl | [0, 1] | MaxPool2D | tanh | 0.001 | Keras | [View][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
+| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | Keras | [View][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
 
 Our implementation is based on the following paper:
 
