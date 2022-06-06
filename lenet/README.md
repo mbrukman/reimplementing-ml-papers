@@ -1,8 +1,8 @@
 # LeNet
 
 This directory aims to implement the LeNet architecture for a Convolutional
-Neural Network (CNN) used for character recognition, and tested with the MNIST
-dataset.
+Neural Network (CNN) used for character recognition, trained and tested with the
+[MNIST dataset][mnist-tf].
 
 Available implementations:
 
@@ -26,7 +26,8 @@ The paper is available via:
 
 See also:
 
-* [LeNet on Wikipedia](https://en.wikipedia.org/wiki/LeNet)
+* LeNet on [Wikipedia][lenet-wikipedia]
+* MNIST on [Wikipedia][mnist-wikipedia], [Hugging Face][mnist-hf], [Papers with Code][mnist-pwc]
 
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
@@ -40,3 +41,9 @@ See also:
 [binder-subsampling]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
 
 [lenet-google-scholar]: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WLN3QrAAAAAJ&citation_for_view=WLN3QrAAAAAJ:u5HHmVD_uO8C
+[lenet-wikipedia]: https://en.wikipedia.org/wiki/LeNet
+
+[mnist-hf]: https://huggingface.co/datasets/mnist
+[mnist-pwc]: https://paperswithcode.com/dataset/mnist
+[mnist-tf]: https://www.tensorflow.org/datasets/catalog/mnist
+[mnist-wikipedia]: https://en.wikipedia.org/wiki/MNIST_database
