@@ -8,8 +8,8 @@ Available implementations:
 
 |     | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Library | GitHub<br/>(readonly) | Colab | Binder |
 |:---:| -------------- |:-------------------------:|:-----------------:|:----------:|:-----------------:|:-------:|:---------------------:|:-----:|:------:|
-| v1 | Basic impl | [0, 1] | MaxPool2D | tanh | 0.001 | Keras | [View][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
-| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | Keras | [View][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
+| v1 | Basic impl | [0, 1] | MaxPool2D | tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
+| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-subsampling] | [![Open In Colab][colab-badge]][colab-subsampling] | [![Open in Binder][binder-badge]][binder-subsampling] |
 
 Our implementation is based on the following paper:
 
@@ -29,6 +29,7 @@ See also:
 * LeNet on [Wikipedia][lenet-wikipedia]
 * MNIST on [Wikipedia][mnist-wikipedia], [Hugging Face][mnist-hf], [Papers with Code][mnist-pwc]
 
+[github-badge]: https://img.shields.io/badge/View-GitHub-blue
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
 
