@@ -8,6 +8,7 @@ Current implementations:
 
 * [LeNet](lenet) (1998)
 * [AlexNet](alexnet) (2012)
+* [VGG](vgg) (2015)
 
 ## Contributing
 
