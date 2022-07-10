@@ -7,6 +7,7 @@ results.
 Current implementations:
 
 * [LeNet](lenet) (1998)
+* [AlexNet](alexnet) (2012)
 
 ## Contributing
 
