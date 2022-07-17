@@ -9,7 +9,7 @@ Current implementations:
 * [LeNet](lenet) (1998)
 * [AlexNet](alexnet) (2012)
 * [VGG](vgg) (2015)
-* [GoogLeNet](googlenet) (2015)
+* [GoogLeNet](googlenet) aka _Inception v1_ (2015)
 
 ## Contributing
 
