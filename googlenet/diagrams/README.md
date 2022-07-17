@@ -14,6 +14,12 @@ This directory contains the following diagrams:
 * [`googlenet-simplified.svg`](googlenet-simplified.svg) - each Inception module
   collapsed to a single ndoe for easier understanding and implementation
 
+> **Important:** GitHub's web file viewer renders SVGs without the associated
+> [stylesheet] that they refer to, which means you're missing the text and
+> background colors to match the rendering in the paper. To properly see the
+> diagrams as indented, please see the [published version] of this README on
+> GitHub Pages, and click on the above links on that page.
+
 ## Implementation
 
 Due to the highly repeating nature of the Inception modules in this diagram,
@@ -36,3 +42,6 @@ $ m4 googlenet-paper.m4 | less
 $ m4 googlenet-clusters.m4 | less
 $ m4 googlenet-simplified.m4 | less
 ```
+
+[stylesheet]: googlenet.css
+[published version]: https://mbrukman.github.io/reimplementing-ml-papers/googlenet/diagrams
