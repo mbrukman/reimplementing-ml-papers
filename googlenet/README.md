@@ -40,7 +40,7 @@ See also:
 
 * [Papers with Code][pwc-googlenet]
 
-[github-badge]: https://img.shields.io/badge/View-GitHub-blue
+[github-badge]: https://img.shields.io/badge/View-on%20GitHub-blue?logo=GitHub
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
 
