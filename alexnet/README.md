@@ -73,7 +73,7 @@ Here are several references which agree on this analysis of input shape:
    result in a non-integral output shape, and hence, must be an error, similarly
    to the Stanford CS231n class notes in (2) above.
 
-[github-badge]: https://img.shields.io/badge/View-GitHub-blue
+[github-badge]: https://img.shields.io/badge/View-on%20GitHub-blue?logo=GitHub
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
 
