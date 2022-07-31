@@ -6,11 +6,11 @@ Neural Network (CNN) used for character recognition, trained and tested with the
 
 Available implementations:
 
-|     | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Library | GitHub<br/>(readonly) | Colab | Binder |
-|:---:| -------------- |:-------------------------:|:-----------------:|:----------:|:-----------------:|:-------:|:---------------------:|:-----:|:------:|
-| v1 | Basic impl | [0, 1] | MaxPool2D | tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-keras-v1] | [![Open In Colab][colab-badge]][colab-keras-v1] | [![Open in Binder][binder-badge]][binder-keras-v1] |
-| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-keras-v2] | [![Open In Colab][colab-badge]][colab-keras-v2] | [![Open in Binder][binder-badge]][binder-keras-v2] |
-| v3 | Custom layer,<br/>activation,<br/>scaling,<br/>learning rate | [-0.1, 1.175] | Subsampling | scaled<br/>tanh | schedule | Keras | [![View on GitHub][github-badge]][github-keras-v3] | [![Open In Colab][colab-badge]][colab-keras-v3] | [![Open in Binder][binder-badge]][binder-keras-v3] |
+|     | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Library | Notebook |
+|:---:| -------------- |:-------------------------:|:-----------------:|:----------:|:-----------------:|:-------:|:--------:|
+| v1 | Basic impl | [0, 1] | MaxPool2D | tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-keras-v1] [![Open In Colab][colab-badge]][colab-keras-v1] [![Open in Binder][binder-badge]][binder-keras-v1] |
+| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-keras-v2] [![Open In Colab][colab-badge]][colab-keras-v2] [![Open in Binder][binder-badge]][binder-keras-v2] |
+| v3 | Custom layer,<br/>activation,<br/>scaling,<br/>learning rate | [-0.1, 1.175] | Subsampling | scaled<br/>tanh | schedule | Keras | [![View on GitHub][github-badge]][github-keras-v3] [![Open In Colab][colab-badge]][colab-keras-v3] [![Open in Binder][binder-badge]][binder-keras-v3] |
 
 Our implementation is based on the following paper:
 
