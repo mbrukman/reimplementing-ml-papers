@@ -12,9 +12,9 @@ and implement the network. See the directory's documentation for details.
 
 Available implementations:
 
-|      | Description    | Library | GitHub<br/>(readonly) | Colab | Binder |
-|:----:| -------------- |:-------:|:---------------------:|:-----:|:------:|
-|  v1  | Basic impl     |  Keras  | [![View on GitHub][github-badge]][github-basic] | [![Open In Colab][colab-badge]][colab-basic] | [![Open in Binder][binder-badge]][binder-basic] |
+|      | Description    | Library | Notebook |
+|:----:| -------------- |:-------:|:--------:|
+|  v1  | Basic impl     |  Keras  | [![View on GitHub][github-badge]][github-basic] [![Open In Colab][colab-badge]][colab-basic] [![Open in Binder][binder-badge]][binder-basic] |
 
 Implementation notes for v1:
 
