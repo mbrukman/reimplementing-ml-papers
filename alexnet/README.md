@@ -4,13 +4,13 @@ In this directory, we aim to implement the AlexNet architecture for a
 Convolutional Neural Network (CNN) used for image classification, to be tested
 with the ImageNet dataset.
 
-Available implementations:
+## ImageNet implementations
 
 |      | Description    | Library | Notebook |
 |:----:| -------------- |:-------:|:--------:|
 |  v1  | Basic impl     |  Keras  | [![View on GitHub][github-badge]][github-basic] [![Open In Colab][colab-badge]][colab-basic] [![Open in Binder][binder-badge]][binder-basic] |
 
-Implementation notes for v1:
+Implementation notes for ImageNet v1:
 
 1. We haven't yet trained or tested this network, as we don't yet have access to
    the ImageNet dataset which requires registration & approval to be able to
@@ -21,6 +21,8 @@ Implementation notes for v1:
 3. This simple implementation does not split the data across 2 GPUs as described
    in the paper for simplicity, and because we no longer have such resource
    constraints in today's GPUs.
+
+## References
 
 Our implementation is based on the following paper:
 
@@ -40,7 +42,32 @@ See also:
 * [Slides on ImageNet][imagenet-slides]
 * [AlexNet on Wikipedia][alexnet-wiki]
 
-# Input size discrepancy
+## Local Response Normalization
+
+Per the AlexNet paper, the _Local Response Normalization_ layer computes the
+following function:
+
+$$
+b_{x,y}^i = a_{x,y}^i /
+    \left(
+        k + \alpha \sum_{j = \max(0, i-n/2)}^{\min(N-1, i+n/2)}
+        \left(a_{x,y}^j \right)^2
+    \right) ^ \beta
+$$
+
+The paper authors chose $k = 2, n = 5, \alpha = 10^{-4}, \beta = 0.75$.
+
+We provide 2 implementations of the Local Response Normalization layer:
+
+* one in this directory,
+  [`local_response_normalization.py`](local_response_normaliation.py) as a very
+  light wrapper around [`tensorflow.nn.local_response_normalization`][tf-nn-lrn]
+  layer which was written as a result of this paper
+* another one in
+  [`third_party/pylearn2/local_response_normalization.py`](../third_party/pylearn2/local_response_normalization.py)
+  which is based on the Pylearn2 implementation and adapted in the Keras project
+
+## Input size discrepancy
 
 Note that the original AlexNet paper refers to inputs as $224 \times 224$
 images; however, that does not work out to have $55 \times 55$ images as the
@@ -91,3 +118,5 @@ Here are several references which agree on this analysis of input shape:
 [classic-networks]: https://youtu.be/dZVkygnKh1M?t=421
 [stanford-cs231n]: https://cs231n.github.io/convolutional-networks/
 [datascience-se]: https://datascience.stackexchange.com/questions/29245/what-is-the-input-size-of-alex-net
+
+[tf-nn-lrn]: https://www.tensorflow.org/api_docs/python/tf/nn/local_response_normalization
