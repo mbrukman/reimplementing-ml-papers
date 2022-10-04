@@ -4,6 +4,13 @@ In this directory, we aim to implement the AlexNet architecture for a
 Convolutional Neural Network (CNN) used for image classification, to be tested
 with the ImageNet dataset.
 
+## CIFAR-10 implementations
+
+| Description | Library | Notebook |
+|:-----------:|:-------:|:--------:|
+| Using Pylearn2/Keras LRN | Keras | [![View on GitHub][github-badge]][github-cifar10-pylearn2-lrn] [![Open In Colab][colab-badge]][colab-cifar10-pylearn2-lrn] [![Open in Binder][binder-badge]][binder-cifar10-pylearn2-lrn] |
+| Using TF.NN.LRN | Keras | [![View on GitHub][github-badge]][github-cifar10-tf-nn-lrn] [![Open In Colab][colab-badge]][colab-cifar10-tf-nn-lrn] [![Open in Binder][binder-badge]][binder-cifar10-tf-nn-lrn] |
+
 ## ImageNet implementations
 
 |      | Description    | Library | Notebook |
@@ -103,6 +110,14 @@ Here are several references which agree on this analysis of input shape:
 [github-badge]: https://img.shields.io/badge/View-on%20GitHub-blue?logo=GitHub
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
+
+[github-cifar10-pylearn2-lrn]: AlexNet_for_CIFAR-10_with_Pylearn2_Keras_LRN.ipynb
+[colab-cifar10-pylearn2-lrn]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/alexnet/AlexNet_for_CIFAR-10_with_Pylearn2_Keras_LRN.ipynb
+[binder-cifar10-pylearn2-lrn]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=alexnet/AlexNet_for_CIFAR-10_with_Pylearn2_Keras_LRN.ipynb
+
+[github-cifar10-tf-nn-lrn]: AlexNet_for_CIFAR-10_in_Keras_with_tf_nn_LocalResponseNormalization.ipynb
+[colab-cifar10-tf-nn-lrn]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/alexnet/AlexNet_for_CIFAR-10_in_Keras_with_tf_nn_LocalResponseNormalization.ipynb
+[binder-cifar10-tf-nn-lrn]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=alexnet/AlexNet_for_CIFAR-10_in_Keras_with_tf_nn_LocalResponseNormalization.ipynb
 
 [github-basic]: Basic_AlexNet_in_Keras.ipynb
 [colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/alexnet/Basic_AlexNet_in_Keras.ipynb

@@ -4,12 +4,16 @@ The goal of this project is to reimplement various ML papers, learn about ML
 model architectures and libraries, and see how close we can get to published
 results.
 
-Current implementations:
+Current model implementations:
 
 * [LeNet](lenet) (1998)
 * [AlexNet](alexnet) (2012)
 * [VGG](vgg) (2015)
 * [GoogLeNet](googlenet) aka _Inception v1_ (2015)
+
+Dataset analysis:
+
+* [CIFAR-10](datasets/cifar-10)
 
 ## Contributing
 
