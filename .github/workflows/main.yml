@@ -32,3 +32,16 @@ jobs:
 
     - name: Run notebook format test
       run: make test
+
+    - name: Install tools for building SVG diagrams
+      run: |
+        sudo apt update
+        sudo apt install graphviz m4
+
+    - name: Build GoogLeNet SVG diagrams
+      run: |
+        cd googlenet/diagrams
+        # The SVG files are checked-in for convenience; delete them to force
+        # `make` to regenerate them, so we're not depending on timestamps.
+        rm -f *.svg
+        make all VERBOSE=1
