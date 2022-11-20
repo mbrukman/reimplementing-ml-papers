@@ -18,21 +18,20 @@ declare -i status=0
 
 function test_file() {
   local file="$1"
-  local temp="${file}.tmp"
-  local diff="${file}.diff"
+  local html="${file/%ipynb/html}"
+  local err="${file}.err"
 
-  echo -n "Testing ${file} ... "
-  python "$(dirname $0)/nbfmt.py" "${file}" > "${temp}"
-  if diff -u "${file}" "${temp}" > "${diff}" 2>&1; then
-    echo "no diff."
+  echo -n "::group::Converting ${file} ... "
+  jupyter nbconvert --to html "${file}" 2> "${err}"
+  if [ $? -eq 0 ]; then
+    echo "ok"
   else
     status=1
-    echo "found diff:"
-    echo
-    cat "${diff}"
-    echo
+    echo "failed"
+    cat "${err}"
   fi
-  rm "${temp}" "${diff}"
+  echo "::endgroup::"
+  rm -f "${err}" "${html}"
 }
 
 for file in $(find . -name \*\.ipynb | sort); do
