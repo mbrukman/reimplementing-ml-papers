@@ -27,9 +27,6 @@ import sys
 from typing import Dict, List
 
 
-EXECUTION_COUNT = 'execution_count'
-
-
 def processList(data: List):
     """Processes the passed-in list recursively, may modify it in-place."""
     for item in data:
@@ -41,15 +38,32 @@ def processList(data: List):
 
 def processDict(data: Dict):
     """Processes the passed-in dict recursively, may modify it in-place."""
-    # Reset execution counts for code cells.
-    if EXECUTION_COUNT in data:
-        data[EXECUTION_COUNT] = None
+    # Replace fields with default value `null` which aren't meaningful.
+    for field in ['id']:
+        if field in data:
+            data[field] = None
+
+    # Delete fields which don't need to be present in the notebook.
+    for field in ['base_uri', 'execution_count', 'outputId']:
+        if field in data:
+            del data[field]
 
     for key in data.keys():
         if isinstance(data[key], list):
             processList(data[key])
         elif isinstance(data[key], dict):
             processDict(data[key])
+
+    # Delete list and dict values if empty.
+    empty_fields = []
+    for field in data.keys():
+        value = data[field]
+        if ((isinstance(value, list) and len(value) == 0) or
+            (isinstance(value, dict) and len(value.keys()) == 0)):
+            empty_fields.append(field)
+
+    for field in empty_fields:
+        del data[field]
 
 
 # TODO(mbrukman): add flag `-w` to rewrite the file in-place, a la gofmt.
