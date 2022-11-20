@@ -30,6 +30,15 @@ jobs:
     - name: Checkout the repo
       uses: actions/checkout@v3
 
+    - name: Install Jupyter and nbconvert
+      run: |
+        pip install jupyterlab
+        pip install nbconvert
+
+    - name: Run nbconvert test
+      run: make nbconvert-test
+      continue-on-error: true
+
     - name: Run notebook format test
       run: make test
 

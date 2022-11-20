@@ -28,3 +28,6 @@ update: nbfmt-update
 
 nbfmt-update: nbfmt_update.sh Makefile
 	$(VERB) ./$<
+
+nbconvert-test: nbconvert_test.sh Makefile
+	$(VERB) ./$<
