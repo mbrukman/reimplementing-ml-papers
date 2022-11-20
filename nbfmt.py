@@ -44,7 +44,7 @@ def processDict(data: Dict):
             data[field] = None
 
     # Delete fields which don't need to be present in the notebook.
-    for field in ['base_uri', 'execution_count', 'outputId']:
+    for field in ['base_uri', 'execution_count', 'hash', 'outputId']:
         if field in data:
             del data[field]
 
