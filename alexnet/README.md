@@ -22,12 +22,6 @@ Implementation notes for ImageNet v1:
 1. We haven't yet trained or tested this network, as we don't yet have access to
    the ImageNet dataset which requires registration & approval to be able to
    download it.
-2. We haven't yet implemented the Local Response Normalization layer after the
-   first two convolutional passes; the points where they should be added are
-   marked with `TODO`s in the notebook.
-3. This simple implementation does not split the data across 2 GPUs as described
-   in the paper for simplicity, and because we no longer have such resource
-   constraints in today's GPUs.
 
 ## References
 
