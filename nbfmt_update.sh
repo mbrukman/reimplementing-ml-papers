@@ -16,15 +16,27 @@
 
 function clean_file() {
   local file="$1"
-  local temp="${file}.tmp"
+  local out="${file}.out"
+  local err="${file}.err"
 
   echo -n "Updating ${file} ... "
-  python "$(dirname $0)/nbfmt.py" "${file}" > "${temp}"
-  if diff "${file}" "${temp}" > /dev/null 2>&1; then
-    rm "${temp}"
+  if python "$(dirname $0)/nbfmt.py" "${file}" > "${out}" 2> "${err}"; then
+    # No issues; will continue with diffing `${out}` below.
+    rm "${err}"
+  else
+    echo "error:"
+    echo
+    cat "${err}"
+    echo
+    rm "${out}" "${err}"
+    return
+  fi
+
+  if diff "${file}" "${out}" > /dev/null 2>&1; then
+    rm "${out}"
     echo "no change."
   else
-    mv "${temp}" "${file}"
+    mv "${out}" "${file}"
     echo "done."
   fi
 }
