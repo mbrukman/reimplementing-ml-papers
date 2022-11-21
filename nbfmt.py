@@ -38,13 +38,17 @@ def processList(data: List):
 
 def processDict(data: Dict):
     """Processes the passed-in dict recursively, may modify it in-place."""
-    # Replace fields with default value `null` which aren't meaningful.
-    for field in ['id']:
+    # Replace fields with default value `null` which aren't meaningful:
+    #
+    # * Colab doesn't load a notebook missing the `id` field.
+    # * GitHub and `nbconvert` don't load notebooks missing the
+    #   `execution_count` field.
+    for field in ('execution_count', 'id'):
         if field in data:
             data[field] = None
 
     # Delete fields which don't need to be present in the notebook.
-    for field in ['base_uri', 'execution_count', 'hash', 'outputId']:
+    for field in ('base_uri', 'hash', 'outputId'):
         if field in data:
             del data[field]
 
@@ -55,14 +59,20 @@ def processDict(data: Dict):
             processDict(data[key])
 
     # Delete list and dict values if empty.
-    empty_fields = []
+    #
+    # GitHub and `nbconvert` require the following fields even if empty:
+    # `metadata`, `outputs`.
+    required_even_if_empty = ['metadata', 'outputs']
+    empty_fields_to_delete = []
     for field in data.keys():
+        if field in required_even_if_empty:
+            continue
         value = data[field]
         if ((isinstance(value, list) and len(value) == 0) or
             (isinstance(value, dict) and len(value.keys()) == 0)):
-            empty_fields.append(field)
+            empty_fields_to_delete.append(field)
 
-    for field in empty_fields:
+    for field in empty_fields_to_delete:
         del data[field]
 
 

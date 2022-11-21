@@ -37,10 +37,9 @@ jobs:
 
     - name: Run nbconvert test
       run: make nbconvert-test
-      continue-on-error: true
 
     - name: Run notebook format test
-      run: make test
+      run: make nbfmt-test
 
     - name: Install tools for building SVG diagrams
       run: |
