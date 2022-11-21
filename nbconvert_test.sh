@@ -21,16 +21,15 @@ function test_file() {
   local html="${file/%ipynb/html}"
   local err="${file}.err"
 
-  echo -n "::group::Converting ${file} ... "
   jupyter nbconvert --to html "${file}" 2> "${err}"
   if [ $? -eq 0 ]; then
-    echo "ok"
+    echo "Converting ${file} ... ok"
   else
     status=1
-    echo "failed"
+    echo "::group::Converting ${file} ... failed"
     cat "${err}"
+    echo "::endgroup::"
   fi
-  echo "::endgroup::"
   rm -f "${err}" "${html}"
 }
 

@@ -41,6 +41,6 @@ function clean_file() {
   fi
 }
 
-for file in $(find . -name \*\.ipynb); do
+for file in $(find . -name \*\.ipynb | sort); do
   clean_file "${file}"
 done
