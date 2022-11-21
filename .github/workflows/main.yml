@@ -22,18 +22,26 @@ on:
 
 jobs:
   test:
+    strategy:
+      matrix:
+        os: ['ubuntu-latest']
+        python: ['3.10']
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     steps:
 
     - name: Checkout the repo
       uses: actions/checkout@v3
 
-    - name: Install Jupyter and nbconvert
-      run: |
-        pip install jupyterlab
-        pip install nbconvert
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python }}
+        cache: 'pip'
+
+    - name: Install Python deps
+      run: pip install -r requirements.txt
 
     - name: Run nbconvert test
       run: make nbconvert-test
