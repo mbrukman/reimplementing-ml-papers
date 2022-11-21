@@ -15,9 +15,6 @@ Implementation notes for v1:
 1. We haven't yet trained or tested this network, as we don't yet have access to
    the ImageNet dataset which requires registration & approval to be able to
    download it.
-2. We haven't yet implemented the Local Response Normalization layer (borrowed
-   from AlexNet), but the authors of the VGG paper noted that it did not provide
-   an improvement over not using it.
 
 Our implementation is based on the following paper:
 
