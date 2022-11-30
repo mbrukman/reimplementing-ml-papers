@@ -14,6 +14,7 @@ Current model implementations:
 Dataset analysis:
 
 * [CIFAR-10](datasets/cifar-10)
+* [MNIST](datasets/mnist)
 
 ## Contributing
 
