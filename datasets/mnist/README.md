@@ -10,7 +10,7 @@ Available notebooks:
 
 * [MNIST homepage][mnist-home]
 * MNIST dataset in: [Keras][mnist-keras], [PyTorch][mnist-pytorch], [TensorFlow][mnist-tf]
-* [MNIST on Wikipedia][mnist-wikipedia]
+* MNIST on [Hugging Face][mnist-hf], [Papers with Code][mnist-pwc], [Wikipedia][mnist-wikipedia]
 
 [github-badge]: https://img.shields.io/badge/View-on%20GitHub-blue?logo=GitHub
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
@@ -24,4 +24,6 @@ Available notebooks:
 [mnist-keras]: https://keras.io/api/datasets/mnist/
 [mnist-pytorch]: https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html
 [mnist-tf]: https://www.tensorflow.org/datasets/catalog/mnist
+[mnist-hf]: https://huggingface.co/datasets/mnist
+[mnist-pwc]: https://paperswithcode.com/dataset/mnist
 [mnist-wikipedia]: https://en.wikipedia.org/wiki/MNIST_database
