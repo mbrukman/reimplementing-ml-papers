@@ -17,24 +17,13 @@ ifeq ($(VERBOSE),1)
 	VERB =
 endif
 
-.PHONY: test clean
+.PHONY: test
 
-test: nbfmt-test
-
-nbfmt-test: run_nbfmt_test.sh Makefile
-	$(VERB) echo "Notebook format tests"
+test:
+	$(VERB) echo "Datasets Python tests"
 	$(VERB) echo
-	$(VERB) ./$<
+	$(VERB) for py_test in *_test.py ; do \
+	  echo "Testing $${py_test} ... " ; \
+	  python ./$${py_test} ; \
+	done
 
-update: nbfmt-update
-
-nbfmt-update: nbfmt_update.sh Makefile
-	$(VERB) ./$<
-
-nbconvert-test: nbconvert_test.sh Makefile
-	$(VERB) echo "Notebook conversion tests"
-	$(VERB) echo
-	$(VERB) ./$<
-
-datasets-test:
-	$(VERB) make -C datasets test
