@@ -49,6 +49,9 @@ jobs:
     - name: Run notebook format test
       run: make nbfmt-test
 
+    - name: Run datasets test
+      run: make datasets-test
+
     - name: Install tools for building SVG diagrams
       run: |
         sudo apt update
