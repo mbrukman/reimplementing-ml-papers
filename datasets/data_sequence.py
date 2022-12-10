@@ -17,7 +17,15 @@ import random
 from typing import List, Tuple
 
 
+class DefaultStrategy:
+    def __init__(self):
+        self.random = random
+        self.range = range
+
+
 class DataSequence:
+    """Very simple implementation of `keras.utils.Sequence` without shuffling."""
+
     def __init__(self, num_items: int, batch_size: int):
         self.num_items = num_items
         self.batch_size = batch_size
@@ -27,18 +35,22 @@ class DataSequence:
 
     def __getitem__(self, index: int) -> Tuple[int, int]:
         low = self.batch_size * index
-        # Cap at the length of the array; the last batch may be a smaller size
-        # if the total number of items is not a multiple of `batch_size`.
+        # Cap upper bound at array length; the last batch may be smaller
+        # if the total number of items is not a multiple of batch size.
         high = min(low + self.batch_size, self.num_items)
         return (low, high)
 
 
 class DataSequenceWithShuffling:
-    def __init__(self, num_items: int, batch_size: int, shuffle: bool = False):
+    """Simple implementation of `keras.utils.Sequence` with optional shuffling."""
+
+    def __init__(self, num_items: int, batch_size: int, shuffle: bool = True,
+                 strategy = DefaultStrategy()):
         self.num_items = num_items
         self.batch_size = batch_size
         self.shuffle = shuffle
-        self.indexes = list(range(0, self.num_items))
+        self.strategy = strategy
+        self.indexes = list(self.strategy.range(0, self.num_items))
         self.on_epoch_end()
 
     def __len__(self) -> int:
@@ -46,14 +58,12 @@ class DataSequenceWithShuffling:
 
     def __getitem__(self, index: int) -> Tuple[Tuple[int, int], List[int]]:
         low = self.batch_size * index
-        # Cap at the length of the array; the last batch may be a smaller size
-        # if the total number of items is not a multiple of `batch_size`.
+        # Cap upper bound at array length; the last batch may be smaller
+        # if the total number of items is not a multiple of batch size.
         high = min(low + self.batch_size, self.num_items)
         positions = self.indexes[low:high]
         return (low, high), positions
 
     def on_epoch_end(self):
         if self.shuffle:
-            # Note: in practice, prefer to use `numpy.random.shuffle` instead.
-            random.shuffle(self.indexes)
-
+            self.strategy.random.shuffle(self.indexes)
