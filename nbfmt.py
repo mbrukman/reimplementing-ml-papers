@@ -56,6 +56,11 @@ def processDict(data: Dict):
         if isinstance(data[key], list):
             processList(data[key])
         elif isinstance(data[key], dict):
+            if key == 'kernelspec' and 'language' in data[key]:
+                del data[key]['language']
+            elif key == 'language_info' and 'version' in data[key]:
+                del data[key]['version']
+
             processDict(data[key])
 
     # Delete list and dict values if empty.
