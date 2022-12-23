@@ -17,24 +17,26 @@ ifeq ($(VERBOSE),1)
 	VERB =
 endif
 
+SRC_DIR ?= .
+
 .PHONY: test clean
 
 test: nbfmt-test
 
-nbfmt-test: run_nbfmt_test.sh Makefile
+nbfmt-test:
 	$(VERB) echo "Notebook format tests"
 	$(VERB) echo
-	$(VERB) ./$<
+	$(VERB) $(SRC_DIR)/run_nbfmt_test.sh
 
 update: nbfmt-update
 
-nbfmt-update: nbfmt_update.sh Makefile
-	$(VERB) ./$<
+nbfmt-update:
+	$(VERB) $(SRC_DIR)/nbfmt_update.sh
 
-nbconvert-test: nbconvert_test.sh Makefile
+nbconvert-test:
 	$(VERB) echo "Notebook conversion tests"
 	$(VERB) echo
-	$(VERB) ./$<
+	$(VERB) $(SRC_DIR)/nbconvert_test.sh
 
 datasets-test:
 	$(VERB) make -C datasets test
