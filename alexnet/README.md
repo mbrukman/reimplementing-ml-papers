@@ -94,12 +94,12 @@ Here are several references which agree on this analysis of input shape:
    > that Alex used zero-padding of 3 extra pixels that he does not mention in
    > the paper.
 
-3. [Data Science SE][datascience-se]
+3. [Data Science SE][ds-se-q]
 
-   One answer also quotes Andrew Ng's lecture in (1) above. Another answer
-   demonstrates via calculation that the $224 \times 224$ input shape would
-   result in a non-integral output shape, and hence, must be an error, similarly
-   to the Stanford CS231n class notes in (2) above.
+   [One answer][ds-se-a1] also quotes Andrew Ng's lecture in (1) above. [Another
+   answer][ds-se-a2] demonstrates via calculation that the $224 \times 224$
+   input shape would result in a non-integral output shape, and hence, must be
+   an error, similarly to the Stanford CS231n class notes in (2) above.
 
 [github-badge]: https://img.shields.io/badge/View-on%20GitHub-blue?logo=GitHub
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
@@ -126,6 +126,8 @@ Here are several references which agree on this analysis of input shape:
 
 [classic-networks]: https://youtu.be/dZVkygnKh1M?t=421
 [stanford-cs231n]: https://cs231n.github.io/convolutional-networks/
-[datascience-se]: https://datascience.stackexchange.com/questions/29245/what-is-the-input-size-of-alex-net
+[ds-se-q]: https://datascience.stackexchange.com/q/29245/14971
+[ds-se-a1]: https://datascience.stackexchange.com/a/29247/14971
+[ds-se-a2]: https://datascience.stackexchange.com/a/97005/14971
 
 [tf-nn-lrn]: https://www.tensorflow.org/api_docs/python/tf/nn/local_response_normalization
