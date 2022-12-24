@@ -19,9 +19,7 @@ with the ImageNet dataset.
 
 Implementation notes for ImageNet v1:
 
-1. We haven't yet trained or tested this network, as we don't yet have access to
-   the ImageNet dataset which requires registration & approval to be able to
-   download it.
+1. We haven't yet trained or tested this network (work in progress).
 
 ## References
 
