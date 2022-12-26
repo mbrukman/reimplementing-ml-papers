@@ -19,10 +19,16 @@ from typing import Tuple
 
 class MNIST:
 
+    x_train_raw_data: np.ndarray
+    x_test_raw_data: np.ndarray
+    y_train_raw_data: np.ndarray
+    y_test_raw_data: np.ndarray
+    num_classes: int
+
     def __init__(self):
         train_data, test_data = keras.datasets.mnist.load_data()
-        self.x_train_raw, self.y_train_raw = train_data
-        self.x_test_raw, self.y_test_raw = test_data
+        self.x_train_raw_data, self.y_train_raw_data = train_data
+        self.x_test_raw_data, self.y_test_raw_data = test_data
         self.num_classes = 10
 
     def _scale_custom(self, array: np.ndarray,
@@ -32,31 +38,31 @@ class MNIST:
         return array * (upper_bound - lower_bound) + lower_bound
 
     def x_train_raw(self) -> np.ndarray:
-        return self.x_train_raw
+        return self.x_train_raw_data
 
     def x_train_scale_0_1(self) -> np.ndarray:
-        return self.x_train_raw.astype('float32') / 255.0
+        return self.x_train_raw().astype('float32') / 255.0
 
     def x_train_scale_custom(self, target_range: Tuple[float, float]) -> np.ndarray:
         return self._scale_custom(self.x_train_scale_0_1(), target_range)
 
     def x_test_raw(self) -> np.ndarray:
-        return self.x_test_raw
+        return self.x_test_raw_data
 
     def x_test_scale_0_1(self) -> np.ndarray:
-        return self.x_test_raw.astype('float32') / 255.0
+        return self.x_test_raw_data.astype('float32') / 255.0
 
     def x_test_scale_custom(self, target_range: Tuple[float, float]) -> np.ndarray:
         return self._scale_custom(self.x_test_scale_0_1(), target_range)
 
     def y_train_raw(self) -> np.ndarray:
-        return self.y_train_raw
+        return self.y_train_raw_data
 
     def y_train_categorical(self) -> np.ndarray:
-        return keras.utils.to_categorical(self.y_train_raw, self.num_classes)
+        return keras.utils.to_categorical(self.y_train_raw(), self.num_classes)
 
     def y_test_raw(self) -> np.ndarray:
-        return self.y_test_raw
+        return self.y_test_raw_data
 
     def y_test_categorical(self) -> np.ndarray:
-        return keras.utils.to_categorical(self.y_test_raw, self.num_classes)
+        return keras.utils.to_categorical(self.y_test_raw(), self.num_classes)

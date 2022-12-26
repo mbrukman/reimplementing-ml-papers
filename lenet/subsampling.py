@@ -67,7 +67,7 @@ class Subsampling(Layer):
             self.pool_size = (pool_size, pool_size)
         elif (isinstance(pool_size, list) or
               isinstance(pool_size, tuple)) and len(pool_size) == 2:
-            self.pool_size = tuple(pool_size)
+            self.pool_size = (pool_size[0], pool_size[1])
         else:
             raise ArgumentError(
                 f"`pool_size` must be an int or 2-tuple; received: {pool_size}")
@@ -76,9 +76,9 @@ class Subsampling(Layer):
             self.strides == self.pool_size
         elif isinstance(strides, int):
             self.strides = (strides, strides)
-        elif (isinstance(strides, list) or isinstance(strides, tuple)) and \
-            len(strides) == 2:
-            self.strides = tuple(strides)
+        elif (isinstance(strides, list) or
+              isinstance(strides, tuple)) and len(strides) == 2:
+            self.strides = (strides[0], strides[1])
         else:
             raise ArgumentError(
                 f"`strides` must be an int or 2-tuple; received: {strides}")
@@ -90,8 +90,7 @@ class Subsampling(Layer):
         self.activation = activation
 
     def build(
-        self, input_shape: Union[List[Optional[int]],
-                                 Tuple[Optional[int], int, int, int]]) -> None:
+        self, input_shape: Tuple[Optional[int], int, int, int]) -> None:
         """Builds internal structures to prepare for model training.
 
         Args:

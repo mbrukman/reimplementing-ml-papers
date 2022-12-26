@@ -3,4 +3,5 @@ jupyterlab ~= 3.5.0
 nbconvert ~= 7.2.5
 
 # Type checking.
+mypy ~= 0.991
 pytype ~= 2022.12.15
