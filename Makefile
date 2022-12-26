@@ -41,5 +41,8 @@ nbconvert-test:
 datasets-test:
 	$(VERB) make -C datasets test
 
+mypy-test:
+	$(VERB) python -m mypy --ignore-missing-imports `find . -name 'third_party' -prune -o -name '*.py' -print`
+
 pytype-test:
 	$(VERB) python -m pytype -k `find . -name 'third_party' -prune -o -name '*.py' -print`
