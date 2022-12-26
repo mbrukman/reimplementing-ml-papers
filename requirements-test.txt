@@ -1,0 +1,6 @@
+# Deps for the nbconvert test.
+jupyterlab ~= 3.5.0
+nbconvert ~= 7.2.5
+
+# Type checking.
+pytype ~= 2022.12.15

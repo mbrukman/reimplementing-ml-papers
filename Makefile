@@ -40,3 +40,6 @@ nbconvert-test:
 
 datasets-test:
 	$(VERB) make -C datasets test
+
+pytype-test:
+	$(VERB) python -m pytype -k `find . -name 'third_party' -prune -o -name '*.py' -print`

@@ -40,8 +40,14 @@ jobs:
         python-version: ${{ matrix.python }}
         cache: 'pip'
 
-    - name: Install Python deps
-      run: pip install -r requirements.txt
+    - name: Install Python core deps
+      run: python -m pip install -r requirements.txt
+
+    - name: Install Python testing deps
+      run: python -m pip install -r requirements-test.txt
+
+    - name: Run PyType tests
+      run: make pytype-test
 
     - name: Run nbconvert test
       run: make nbconvert-test
