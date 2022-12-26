@@ -18,11 +18,6 @@ from tensorflow import keras
 from typing import Tuple
 
 class MNIST:
-    x_train_raw: np.ndarray
-    y_train_raw: np.ndarray
-    x_test_raw: np.ndarray
-    y_test_raw: np.ndarray
-    num_classes: int
 
     def __init__(self):
         train_data, test_data = keras.datasets.mnist.load_data()

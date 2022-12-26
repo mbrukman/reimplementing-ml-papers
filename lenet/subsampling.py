@@ -22,24 +22,28 @@ from tensorflow import keras
 from keras.layers import Layer
 
 
-class SubsamplingArgumentError(ValueError):
+class ArgumentError(ValueError):
     pass
+
+
+def identity(x: tf.Tensor) -> tf.Tensor:
+    return x
 
 
 class Subsampling(Layer):
     pool_size: Tuple[int, int]
     strides: Tuple[int, int]
     padding: str
-    activation: Callable[[float], float]
-    w: np.array
-    b: np.array
+    activation: Callable[[tf.Tensor], tf.Tensor]
+    w: np.ndarray
+    b: np.ndarray
 
     def __init__(
         self,
         pool_size: Union[int, List[int], Tuple[int, int]] = (2, 2),
         strides: Optional[Union[int, List[int], Tuple[int, int]]] = None,
         padding: str = 'VALID',
-        activation: Callable[[float], float] = None,
+        activation: Callable[[tf.Tensor], tf.Tensor] = identity,
         **kwargs):
         """Subsampling layer as described in the LeNet paper.
 
@@ -61,11 +65,11 @@ class Subsampling(Layer):
 
         if isinstance(pool_size, int):
             self.pool_size = (pool_size, pool_size)
-        elif (isinstance(pool_size, list) or isinstance(pool_size, tuple)) and \
-            len(pool_size) == 2:
+        elif (isinstance(pool_size, list) or
+              isinstance(pool_size, tuple)) and len(pool_size) == 2:
             self.pool_size = tuple(pool_size)
         else:
-            raise SubsamplingArgumentError(
+            raise ArgumentError(
                 f"`pool_size` must be an int or 2-tuple; received: {pool_size}")
 
         if strides is None:
@@ -76,14 +80,14 @@ class Subsampling(Layer):
             len(strides) == 2:
             self.strides = tuple(strides)
         else:
-            raise SubsamplingArgumentError(
+            raise ArgumentError(
                 f"`strides` must be an int or 2-tuple; received: {strides}")
 
         assert padding is not None and padding.upper() in ('VALID', 'SAME'), (
             f"`padding` must be either 'VALID' or 'SAME'; received: {padding}")
         self.padding = padding.upper()
 
-        self.activation = activation or (lambda x: x)
+        self.activation = activation
 
     def build(
         self, input_shape: Union[List[Optional[int]],
@@ -96,10 +100,10 @@ class Subsampling(Layer):
             `__init__()` for details.
         """
         if len(input_shape) != 4:
-            raise SubsamplingArgumentError(
+            raise ArgumentError(
                 f"`len(input_shape)` != 4; received: {input_shape}")
         if input_shape[0] is not None:
-            raise SubsamplingArgumentError(
+            raise ArgumentError(
                 f"`input_shape[0] must be None; received: {input_shape}")
 
         in_chan = input_shape[3]
