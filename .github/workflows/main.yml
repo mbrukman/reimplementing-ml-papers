@@ -24,10 +24,11 @@ jobs:
   test:
     strategy:
       matrix:
-        os: ['ubuntu-latest']
-        python: ['3.10']
+        os: ['ubuntu-22.04']
+        python: ['3.8', '3.9', '3.10']
 
     runs-on: ${{ matrix.os }}
+    name: ${{ matrix.os }} with Python ${{ matrix.python }}
 
     steps:
 
