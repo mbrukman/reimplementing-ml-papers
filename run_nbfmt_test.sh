@@ -35,7 +35,7 @@ function test_file() {
   rm "${temp}" "${diff}"
 }
 
-for file in $(find . -name \*\.ipynb | sort); do
+for file in $(find . -name 'third_party' -prune -o -name '*.ipynb' -print | sort); do
   test_file "${file}"
 done
 

@@ -1,0 +1,5 @@
+# Ignore all the installed modules here ...
+*
+
+# ... but don't ignore this file!
+!.gitignore
