@@ -11,11 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+"""MNIST dataset provider."""
+
+from __future__ import annotations
 
 import numpy as np
 from tensorflow import keras
 
-from typing import Tuple
 
 class MNIST:
 
@@ -32,7 +34,7 @@ class MNIST:
         self.num_classes = 10
 
     def _scale_custom(self, array: np.ndarray,
-                      target_range: Tuple[float, float]) -> np.ndarray:
+                      target_range: tuple[float, float]) -> np.ndarray:
         lower_bound, upper_bound = target_range
         assert lower_bound < upper_bound, f'range {target_range} must be (low, high) with low < high'
         return array * (upper_bound - lower_bound) + lower_bound
@@ -43,7 +45,7 @@ class MNIST:
     def x_train_scale_0_1(self) -> np.ndarray:
         return self.x_train_raw().astype('float32') / 255.0
 
-    def x_train_scale_custom(self, target_range: Tuple[float, float]) -> np.ndarray:
+    def x_train_scale_custom(self, target_range: tuple[float, float]) -> np.ndarray:
         return self._scale_custom(self.x_train_scale_0_1(), target_range)
 
     def x_test_raw(self) -> np.ndarray:
@@ -52,7 +54,7 @@ class MNIST:
     def x_test_scale_0_1(self) -> np.ndarray:
         return self.x_test_raw_data.astype('float32') / 255.0
 
-    def x_test_scale_custom(self, target_range: Tuple[float, float]) -> np.ndarray:
+    def x_test_scale_custom(self, target_range: tuple[float, float]) -> np.ndarray:
         return self._scale_custom(self.x_test_scale_0_1(), target_range)
 
     def y_train_raw(self) -> np.ndarray:

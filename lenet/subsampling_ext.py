@@ -18,8 +18,15 @@ output, rather than just a single pair of parameters (per channel) for
 the layer overall as described in the LeNet paper.
 """
 
+# From Python 3.9 and onward, `tuple`, `list` and other collection classes can
+# also function as generic class types (see PEP 585).
+#
+# Once we no longer need to support Python 3.7 or 3.8, we can remove this syntax
+# (added in PEP 563) for Python 3.7 and higher.
+from __future__ import annotations
+
 from math import ceil
-from typing import Callable, List, Optional, Tuple, Union
+from typing import Callable, Optional, Union
 
 import numpy as np
 
@@ -37,8 +44,8 @@ def identity(x: tf.Tensor) -> tf.Tensor:
 
 
 class SubsamplingPerKernelParam(Layer):
-    pool_size: Tuple[int, int]
-    strides: Tuple[int, int]
+    pool_size: tuple[int, int]
+    strides: tuple[int, int]
     padding: str
     activation: Callable[[tf.Tensor], tf.Tensor]
     w: np.ndarray
@@ -46,8 +53,8 @@ class SubsamplingPerKernelParam(Layer):
 
     def __init__(
         self,
-        pool_size: Union[int, List[int], Tuple[int, int]] = (2, 2),
-        strides: Optional[Union[int, List[int], Tuple[int, int]]] = None,
+        pool_size: Union[int, list[int], tuple[int, int]] = (2, 2),
+        strides: Optional[Union[int, list[int], tuple[int, int]]] = None,
         padding: str = 'VALID',
         activation: Callable[[tf.Tensor], tf.Tensor] = identity,
         **kwargs):
@@ -99,7 +106,7 @@ class SubsamplingPerKernelParam(Layer):
 
         self.activation = activation
 
-    def build(self, input_shape: Tuple[Optional[int], int, int, int]) -> None:
+    def build(self, input_shape: tuple[Optional[int], int, int, int]) -> None:
         """Builds internal structures to prepare for model training.
 
         Args:

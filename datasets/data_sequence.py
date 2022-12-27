@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import annotations
+
 import math
 import random
-from typing import List, Tuple
 
 
 class DefaultStrategy:
@@ -33,7 +34,7 @@ class DataSequence:
     def __len__(self) -> int:
         return math.ceil(self.num_items / self.batch_size)
 
-    def __getitem__(self, index: int) -> Tuple[int, int]:
+    def __getitem__(self, index: int) -> tuple[int, int]:
         low = self.batch_size * index
         # Cap upper bound at array length; the last batch may be smaller
         # if the total number of items is not a multiple of batch size.
@@ -56,7 +57,7 @@ class DataSequenceWithShuffling:
     def __len__(self) -> int:
         return math.ceil(self.num_items / self.batch_size)
 
-    def __getitem__(self, index: int) -> Tuple[Tuple[int, int], List[int]]:
+    def __getitem__(self, index: int) -> tuple[tuple[int, int], list[int]]:
         low = self.batch_size * index
         # Cap upper bound at array length; the last batch may be smaller
         # if the total number of items is not a multiple of batch size.
