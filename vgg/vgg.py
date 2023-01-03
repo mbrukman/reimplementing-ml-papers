@@ -14,7 +14,7 @@
 
 from tensorflow import keras
 from keras import Input, Sequential
-from keras.layers import Activation, Conv2D, Dense, Flatten, MaxPool2D
+from keras.layers import Activation, Conv2D, Dense, Dropout, Flatten, MaxPool2D
 
 # Provided via: https://raw.githubusercontent.com/mbrukman/reimplementing-ml-papers/main/alexnet/local_response_normalization.py
 from local_response_normalization import LocalResponseNormalization
@@ -31,7 +31,7 @@ def Conv(filters: int, kernel_size: int, **kwargs) -> Conv2D:
     so we include that here as well.
     """
     return Conv2D(filters, kernel_size, strides=(1, 1), padding='same',
-                  activation='relu', **kwargs)
+                  activation=keras.activations.relu, **kwargs)
 
 
 def MaxPool(**kwargs) -> MaxPool2D:
@@ -124,9 +124,15 @@ def VGG(model: str) -> Sequential:
     vgg.add(MaxPool(name='MaxPool_5'))
 
     vgg.add(Flatten(name='Flatten'))
-    vgg.add(Dense(4096, name='FC_1', activation='relu'))
-    vgg.add(Dense(4096, name='FC_2', activation='relu'))
-    vgg.add(Dense(1000, name='FC_3', activation='relu'))
+    vgg.add(Dense(4096, name='FC_1',
+                  activation=keras.activations.relu,
+                  kernel_regularizer=keras.regularizers.L2(0.0005)))
+    vgg.add(Dropout(0.5, name='FC_1_dropout'))
+    vgg.add(Dense(4096, name='FC_2',
+                  activation=keras.activations.relu,
+                  kernel_regularizer=keras.regularizers.L2(0.0005)))
+    vgg.add(Dropout(0.5, name='FC_2_dropout'))
+    vgg.add(Dense(1000, name='FC_3', activation=keras.activations.relu))
     vgg.add(Activation(keras.activations.softmax, name='Softmax'))
 
     return vgg
