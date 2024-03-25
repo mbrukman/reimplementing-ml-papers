@@ -3,5 +3,5 @@ jupyterlab ~= 3.5.0
 nbconvert ~= 7.2.5
 
 # Type checking.
-mypy ~= 0.991
+mypy ~= 1.9.0
 pytype ~= 2024.3.19
