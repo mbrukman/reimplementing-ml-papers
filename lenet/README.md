@@ -10,11 +10,11 @@ as an extension of the custom Subsampling layer.
 
 Available implementations:
 
-|     | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Library | Notebook |
-|:---:| -------------- |:-------------------------:|:-----------------:|:----------:|:-----------------:|:-------:|:--------:|
-| v1 | Basic impl | [0, 1] | MaxPool2D | tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-keras-v1] [![Open In Colab][colab-badge]][colab-keras-v1] [![Open in Binder][binder-badge]][binder-keras-v1] |
-| v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | Keras | [![View on GitHub][github-badge]][github-keras-v2] [![Open In Colab][colab-badge]][colab-keras-v2] [![Open in Binder][binder-badge]][binder-keras-v2] |
-| v3 | Custom layer,<br/>activation,<br/>scaling,<br/>learning rate | [-0.1, 1.175] | Subsampling | scaled<br/>tanh | schedule | Keras | [![View on GitHub][github-badge]][github-keras-v3] [![Open In Colab][colab-badge]][colab-keras-v3] [![Open in Binder][binder-badge]][binder-keras-v3] |
+| Framework | Approach | Description    | Input<br/>pixel<br/>range | Pooling<br/>layer | Activation | Learning<br/>rate | Notebook |
+|:---------:|:--------:|:--------------:|:-------------------------:|:-----------------:|:----------:|:-----------------:|:--------:|
+| Keras | v1 | Basic implementation | [0, 1] | MaxPool2D | tanh | 0.001 | [![View on GitHub][github-badge]][github-keras-v1] [![Open In Colab][colab-badge]][colab-keras-v1] [![Open in Binder][binder-badge]][binder-keras-v1] |
+| Keras | v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | [![View on GitHub][github-badge]][github-keras-v2] [![Open In Colab][colab-badge]][colab-keras-v2] [![Open in Binder][binder-badge]][binder-keras-v2] |
+| Keras | v3 | Custom layer,<br/>activation,<br/>scaling,<br/>learning rate | [-0.1, 1.175] | Subsampling | scaled<br/>tanh | schedule | [![View on GitHub][github-badge]][github-keras-v3] [![Open In Colab][colab-badge]][colab-keras-v3] [![Open in Binder][binder-badge]][binder-keras-v3] |
 
 Our implementation is based on the following paper:
 
@@ -37,17 +37,17 @@ See also:
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
 
-[github-keras-v1]: LeNet_v1_basic_impl_in_Keras.ipynb
-[colab-keras-v1]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_v1_basic_impl_in_Keras.ipynb
-[binder-keras-v1]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_v1_basic_impl_in_Keras.ipynb
+[github-keras-v1]: LeNet_Keras_v1_basic_implementation.ipynb
+[colab-keras-v1]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_Keras_v1_basic_implementation.ipynb
+[binder-keras-v1]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_Keras_v1_basic_implementation.ipynb
 
-[github-keras-v2]: LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
-[colab-keras-v2]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
-[binder-keras-v2]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_v2_custom_Subsampling_layer_and_activation_in_Keras.ipynb
+[github-keras-v2]: LeNet_Keras_v2_custom_Subsampling_layer_and_activation.ipynb
+[colab-keras-v2]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_Keras_v2_custom_Subsampling_layer_and_activation.ipynb
+[binder-keras-v2]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_Keras_v2_custom_Subsampling_layer_and_activation.ipynb
 
-[github-keras-v3]: LeNet_v3_Subsamping_fixed_scaling_and_learning_rate_decay_in_Keras.ipynb
-[colab-keras-v3]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_v3_Subsamping_fixed_scaling_and_learning_rate_decay_in_Keras.ipynb
-[binder-keras-v3]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_v3_Subsamping_fixed_scaling_and_learning_rate_decay_in_Keras.ipynb
+[github-keras-v3]: LeNet_Keras_v3_Subsamping_fixed_scaling_and_learning_rate_decay.ipynb
+[colab-keras-v3]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_Keras_v3_Subsamping_fixed_scaling_and_learning_rate_decay.ipynb
+[binder-keras-v3]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_Keras_v3_Subsamping_fixed_scaling_and_learning_rate_decay.ipynb
 
 [lenet-google-scholar]: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WLN3QrAAAAAJ&citation_for_view=WLN3QrAAAAAJ:u5HHmVD_uO8C
 [lenet-wikipedia]: https://en.wikipedia.org/wiki/LeNet
