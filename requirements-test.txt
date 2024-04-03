@@ -1,5 +1,5 @@
 # Deps for the nbconvert test.
-jupyterlab ~= 3.5.0
+jupyterlab ~= 3.6.7
 nbconvert ~= 7.2.5
 
 # Type checking.
