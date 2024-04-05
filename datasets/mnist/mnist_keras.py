@@ -11,15 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""CIFAR-10 dataset provider."""
+"""MNIST dataset provider."""
 
+# From Python 3.9 and onward, `tuple`, `list` and other collection classes can
+# also function as generic class types (see PEP 585).
+#
+# Once we no longer need to support Python 3.7 or 3.8, we can remove this syntax
+# (added in PEP 563) for Python 3.7 and higher.
 from __future__ import annotations
 
 import numpy as np
 from tensorflow import keras
 
 
-class CIFAR10:
+class MNIST:
 
     x_train_raw_data: np.ndarray
     x_test_raw_data: np.ndarray
@@ -28,7 +33,7 @@ class CIFAR10:
     num_classes: int
 
     def __init__(self):
-        train_data, test_data = keras.datasets.cifar10.load_data()
+        train_data, test_data = keras.datasets.mnist.load_data()
         self.x_train_raw_data, self.y_train_raw_data = train_data
         self.x_test_raw_data, self.y_test_raw_data = test_data
         self.num_classes = 10
