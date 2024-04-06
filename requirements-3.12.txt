@@ -1,0 +1,6 @@
+# These requirements are specifically for Python 3.12; earlier Python versions
+# accept the dependency versions in `requirements.txt`.
+
+tensorflow ~= 2.16.1
+keras ~= 3.0.0
+numpy ~= 1.26.4
