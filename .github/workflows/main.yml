@@ -26,7 +26,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-22.04']
-        python: ['3.8', '3.9', '3.10', '3.11']
+        python: ['3.8', '3.9', '3.10', '3.11', '3.12']
 
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.os }} with Python ${{ matrix.python }}
@@ -42,17 +42,32 @@ jobs:
         python-version: ${{ matrix.python }}
         cache: 'pip'
 
-    - name: Install Python core deps
+    - name: Install Python core deps (3.8 — 3.11)
       run: python -m pip install -r requirements.txt
+      if: ${{ matrix.python != '3.12' }}
 
-    - name: Install Python testing deps
+    - name: Install Python testing deps (3.8 — 3.11)
       run: python -m pip install -r requirements-test.txt
+      if: ${{ matrix.python != '3.12' }}
+
+    - name: Install Python core deps (3.12)
+      run: python -m pip install -r requirements-3.12.txt
+      if: ${{ matrix.python == '3.12' }}
+
+    - name: Install Python testing deps (3.12)
+      run: python -m pip install -r requirements-test-3.12.txt
+      if: ${{ matrix.python == '3.12' }}
 
     - name: Check types with Mypy
       run: make mypy-test
 
     - name: Check types with PyType
       run: make pytype-test
+      # https://github.com/google/pytype/issues/1475
+      #
+      # PyType does not yet support Python 3.12; if this step is enabled, it
+      # fails with an error: "Python versions > 3.11 are not yet supported."
+      if: ${{ matrix.python != '3.12' }}
 
     - name: Run nbconvert test
       run: make nbconvert-test

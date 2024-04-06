@@ -1,3 +1,6 @@
+# These versions are compatible for Python 3.8-3.11; Python 3.12 has its own
+# dependency versions defined in `requirements-3.12.txt`.
+
 tensorflow ~= 2.12.0
 keras ~= 2.12.0
 numpy ~= 1.24.0

@@ -1,0 +1,10 @@
+# These requirements are specifically for Python 3.12; earlier Python versions
+# accept the dependency versions in `requirements.txt`.
+
+# Deps for the nbconvert test.
+jupyterlab ~= 4.1.5
+nbconvert ~= 7.16.3
+
+# Type checking.
+mypy ~= 1.9.0
+pytype ~= 2024.3.19

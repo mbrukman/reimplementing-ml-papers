@@ -1,3 +1,6 @@
+# These versions are compatible for Python 3.8-3.11; Python 3.12 has its own
+# dependency versions defined in `requirements-3.12.txt`.
+
 # Deps for the nbconvert test.
 jupyterlab ~= 3.6.7
 nbconvert ~= 7.2.5
