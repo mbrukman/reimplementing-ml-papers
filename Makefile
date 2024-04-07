@@ -41,6 +41,9 @@ nbconvert-test:
 datasets-test:
 	$(VERB) make -C datasets test
 
+py-test:
+	$(VERB) $(SRC_DIR)/run_python_tests.sh
+
 mypy-test:
 	$(VERB) python -m mypy --ignore-missing-imports `find . -name 'third_party' -prune -o -name '*.py' -print`
 
