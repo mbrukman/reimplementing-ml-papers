@@ -12,15 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from data_sequence import DataSequenceWithShuffling
+from data_sequence import DataSequenceWithShuffling, Strategy
 
-import numpy
+import numpy as np
 
 
-class NumpyStrategy:
+class NumpyStrategy(Strategy):
     def __init__(self):
-        self.random = numpy.random
-        self.range = numpy.arange
+        super().__init__(range_fn=np.arange, shuffle_fn=np.random.shuffle)
 
 
 class NumpyDataSequence(DataSequenceWithShuffling):
