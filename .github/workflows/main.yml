@@ -55,7 +55,7 @@ jobs:
       if: ${{ matrix.python == '3.12' }}
 
     - name: Install Python testing deps (3.12)
-      run: python -m pip install -r requirements-test-3.12.txt
+      run: python -m pip install -r requirements-3.12-test.txt
       if: ${{ matrix.python == '3.12' }}
 
     - name: Check types with Mypy
