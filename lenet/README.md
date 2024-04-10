@@ -4,9 +4,9 @@ This directory aims to implement the LeNet architecture for a Convolutional
 Neural Network (CNN) used for character recognition, trained and tested with the
 [MNIST dataset](../datasets/mnist).
 
-See [implementation notes](notes.md) for historical implementation notes,
-explanation of the various implementation versions, and additional details, such
-as an extension of the custom Subsampling layer.
+See [Keras implementation notes](notes_keras.md) for historical implementation
+notes, explanation of the various implementation versions, and additional
+details, such as an extension of the custom Subsampling layer.
 
 Available implementations:
 
