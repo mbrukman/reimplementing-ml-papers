@@ -111,9 +111,9 @@ Here are several references which agree on this analysis of input shape:
 [colab-cifar10-tf-nn-lrn]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/alexnet/AlexNet_for_CIFAR-10_in_Keras_with_tf_nn_LocalResponseNormalization.ipynb
 [binder-cifar10-tf-nn-lrn]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=alexnet/AlexNet_for_CIFAR-10_in_Keras_with_tf_nn_LocalResponseNormalization.ipynb
 
-[github-basic]: Basic_AlexNet_in_Keras.ipynb
-[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/alexnet/Basic_AlexNet_in_Keras.ipynb
-[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=alexnet/Basic_AlexNet_in_Keras.ipynb
+[github-basic]: AlexNet_for_ImageNet_in_Keras.ipynb
+[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/alexnet/AlexNet_for_ImageNet_in_Keras.ipynb
+[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=alexnet/AlexNet_for_ImageNet_in_Keras.ipynb
 
 [neurips-alexnet]: https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
 [acm-alexnet]: https://dl.acm.org/doi/10.5555/2999134.2999257
