@@ -15,6 +15,7 @@ Available implementations:
 | Keras | v1 | Basic implementation | [0, 1] | MaxPool2D | tanh | 0.001 | [![View on GitHub][github-badge]][github-keras-v1] [![Open In Colab][colab-badge]][colab-keras-v1] [![Open in Binder][binder-badge]][binder-keras-v1] |
 | Keras | v2 | Custom layer,<br/>activation | [0, 1] | Subsampling | scaled<br/>tanh | 0.001 | [![View on GitHub][github-badge]][github-keras-v2] [![Open In Colab][colab-badge]][colab-keras-v2] [![Open in Binder][binder-badge]][binder-keras-v2] |
 | Keras | v3 | Custom layer,<br/>activation,<br/>scaling,<br/>learning rate | [-0.1, 1.175] | Subsampling | scaled<br/>tanh | schedule | [![View on GitHub][github-badge]][github-keras-v3] [![Open In Colab][colab-badge]][colab-keras-v3] [![Open in Binder][binder-badge]][binder-keras-v3] |
+| PyTorch | v1 | Basic implementation | [0, 1] | MaxPool2D | tanh | 0.001 | [![View on GitHub][github-badge]][github-pytorch-v1] [![Open In Colab][colab-badge]][colab-pytorch-v1] [![Open in Binder][binder-badge]][binder-pytorch-v1] |
 
 Our implementation is based on the following paper:
 
@@ -48,6 +49,10 @@ See also:
 [github-keras-v3]: LeNet_Keras_v3_Subsamping_fixed_scaling_and_learning_rate_decay.ipynb
 [colab-keras-v3]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_Keras_v3_Subsamping_fixed_scaling_and_learning_rate_decay.ipynb
 [binder-keras-v3]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_Keras_v3_Subsamping_fixed_scaling_and_learning_rate_decay.ipynb
+
+[github-pytorch-v1]: LeNet_PyTorch_v1.ipynb
+[colab-pytorch-v1]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/lenet/LeNet_PyTorch_v1.ipynb
+[binder-pytorch-v1]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=lenet/LeNet_PyTorch_v1.ipynb
 
 [lenet-google-scholar]: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WLN3QrAAAAAJ&citation_for_view=WLN3QrAAAAAJ:u5HHmVD_uO8C
 [lenet-wikipedia]: https://en.wikipedia.org/wiki/LeNet
