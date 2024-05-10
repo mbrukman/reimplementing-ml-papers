@@ -16,86 +16,95 @@ name: Checks & tests
 
 on:
   push:
-    branches:
-      - 'main'
+    branches: [ main ]
     paths-ignore:
       - '**.md'
+
   pull_request:
-    branches:
-      - 'main'
+    branches: [ main ]
     paths-ignore:
       - '**.md'
+
+  schedule:
+      # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+      #
+      #      ┌───────────── minute (0 - 59)
+      #      │ ┌───────────── hour (0 - 23)
+      #      │ │ ┌───────────── day of the month (1 - 31)
+      #      │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+      #      │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+      #      │ │ │ │ │
+    - cron: '1 2 3 * *'  # run at 2:01 every month on the 3rd day
 
 jobs:
   test:
     strategy:
       fail-fast: false
       matrix:
-        os: ['ubuntu-22.04']
-        python: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        os: [ 'ubuntu-22.04' ]
+        python: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
 
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.os }} with Python ${{ matrix.python }}
+    name: Python ${{ matrix.python }} on ${{ matrix.os }}
 
     steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
 
-    - name: Checkout the repo
-      uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: 'pip'
 
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python }}
-        cache: 'pip'
+      - name: Install Python core deps (3.8 — 3.11)
+        run: python -m pip install -r requirements.txt
+        if: ${{ matrix.python != '3.12' }}
 
-    - name: Install Python core deps (3.8 — 3.11)
-      run: python -m pip install -r requirements.txt
-      if: ${{ matrix.python != '3.12' }}
+      - name: Install Python testing deps (3.8 — 3.11)
+        run: python -m pip install -r requirements-test.txt
+        if: ${{ matrix.python != '3.12' }}
 
-    - name: Install Python testing deps (3.8 — 3.11)
-      run: python -m pip install -r requirements-test.txt
-      if: ${{ matrix.python != '3.12' }}
+      - name: Install Python core deps (3.12)
+        run: python -m pip install -r requirements-3.12.txt
+        if: ${{ matrix.python == '3.12' }}
 
-    - name: Install Python core deps (3.12)
-      run: python -m pip install -r requirements-3.12.txt
-      if: ${{ matrix.python == '3.12' }}
+      - name: Install Python testing deps (3.12)
+        run: python -m pip install -r requirements-3.12-test.txt
+        if: ${{ matrix.python == '3.12' }}
 
-    - name: Install Python testing deps (3.12)
-      run: python -m pip install -r requirements-3.12-test.txt
-      if: ${{ matrix.python == '3.12' }}
+      - name: Run Python tests
+        run: make py-test
 
-    - name: Run Python tests
-      run: make py-test
+      - name: Check types with Mypy
+        run: make mypy-test
 
-    - name: Check types with Mypy
-      run: make mypy-test
+      - name: Check types with PyType
+        run: make pytype-test
+        # https://github.com/google/pytype/issues/1475
+        #
+        # PyType does not yet support Python 3.12; if this step is enabled, it
+        # fails with an error: "Python versions > 3.11 are not yet supported."
+        if: ${{ matrix.python != '3.12' }}
 
-    - name: Check types with PyType
-      run: make pytype-test
-      # https://github.com/google/pytype/issues/1475
-      #
-      # PyType does not yet support Python 3.12; if this step is enabled, it
-      # fails with an error: "Python versions > 3.11 are not yet supported."
-      if: ${{ matrix.python != '3.12' }}
+      - name: Run nbconvert test
+        run: make nbconvert-test
 
-    - name: Run nbconvert test
-      run: make nbconvert-test
+      - name: Run notebook format test
+        run: make nbfmt-test
 
-    - name: Run notebook format test
-      run: make nbfmt-test
+      - name: Run datasets test
+        run: make datasets-test
 
-    - name: Run datasets test
-      run: make datasets-test
+      - name: Install tools for building SVG diagrams
+        run: |
+          sudo apt update
+          sudo apt install graphviz m4
 
-    - name: Install tools for building SVG diagrams
-      run: |
-        sudo apt update
-        sudo apt install graphviz m4
-
-    - name: Build GoogLeNet SVG diagrams
-      run: |
-        cd googlenet/diagrams
-        # The SVG files are checked-in for convenience; delete them to force
-        # `make` to regenerate them, so we're not depending on timestamps.
-        rm -f *.svg
-        make all VERBOSE=1
+      - name: Build GoogLeNet SVG diagrams
+        run: |
+          cd googlenet/diagrams
+          # The SVG files are checked-in for convenience; delete them to force
+          # `make` to regenerate them, so we're not depending on timestamps.
+          rm -f *.svg
+          make all VERBOSE=1
