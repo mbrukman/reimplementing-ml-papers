@@ -41,8 +41,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'ubuntu-22.04' ]
+        os: [ 'ubuntu-22.04', 'ubuntu-24.04' ]
         python: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
+        exclude:
+            # GitHub Actions doesn't provide Python 3.8 for Ubuntu 24.04;
+            # all of the available Python versions are listed here:
+            # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+          - os: 'ubuntu-24.04'
+            python: '3.8'
 
     runs-on: ${{ matrix.os }}
     name: Python ${{ matrix.python }} on ${{ matrix.os }}
