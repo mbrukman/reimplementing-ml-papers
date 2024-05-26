@@ -1,4 +1,4 @@
-# LeNet implementation notes
+# LeNet in Keras implementation notes
 
 Most LeNet implementations use the `AveragePooling2D` or `MaxPooling2D` layers
 in place of the custom `Subsampling` layer which isn't a standard layer in Keras
@@ -63,18 +63,18 @@ def LeNet(subsampling: Type[keras.layers.Layer] = AveragePooling2D,
     ], name='LeNet-5')
 ```
 
-> Note: the last layer **must** have a `softmax` activation to provide
-> probabilities for the 10 output nodes.
+> [!NOTE]
+> The last layer **must** have a `softmax` activation to provide probabilities
+> for the 10 output nodes.
 
-With the above code in hand (also available in
-[`lenet_keras.py`](lenet_keras.py) in this directory), we can now construct
-various versions of the model very easily:
+With the above code in hand (also available in [`lenet.py`](lenet.py) in this
+directory), we can now construct various versions of the model very easily:
 
 ```python
 from keras.layers import AveragePooling2D, MaxPooling2D
 from keras.activations import relu
 
-from lenet_keras import LeNet # local import
+from lenet import LeNet # local import
 
 # Standard models with AveragePooling2D or MaxPooling2D and tanh
 model_avg = LeNet(subsampling=AveragePooling2D)
@@ -92,26 +92,26 @@ parameter to `LeNet()`.
 
 ## Subsampling layer
 
-Finally, we can also implement the [`Subsampling`](subsampling_keras.py) layer as
+Finally, we can also implement the [`Subsampling`](subsampling.py) layer as
 described in the LeNet paper as well as the custom [scaled `tanh` activation
-function](activations_keras.py), and easily construct a LeNet model using these
+function](activations.py), and easily construct a LeNet model using these
 parameters:
 
 ```python
 # All local imports.
-from activations_keras import scaled_tanh
-from lenet_keras import LeNet
-from subsampling_keras import Subsampling
+from activations import scaled_tanh
+from lenet import LeNet
+from subsampling import Subsampling
 
 
 model = LeNet(subsampling=Subsampling, activation=scaled_tanh)
 ```
 
 While implementing the Subsampling layer, we also implemented an extension which
-can be found in [`subsampling_ext_keras.py`](subsampling_ext_keras.py): this
-version has a (weight, bias) pair of parameters for each cell in the output,
-rather than just a single pair of parameters (per channel) for the layer overall
-as described in the LeNet paper.
+can be found in [`subsampling_ext.py`](subsampling_ext.py): this version has a
+(weight, bias) pair of parameters for each cell in the output, rather than just
+a single pair of parameters (per channel) for the layer overall as described in
+the LeNet paper.
 
 Basic testing did not show a significant improvement in accuracy, but with any
 increase in parameters, it does increase the training time.
@@ -125,11 +125,11 @@ details in the LeNet paper than the previous. The table of versions in the
 implementation from each other.
 
 We've factored out common MNIST dataset processing details into a separate
-library in [`../datasets/mnist`](../datasets/mnist) as well as the model
-definition into [`lenet_keras.py`](lenet_keras.py) for easier reuse of common
-functionality and to avoid code duplication. Thus, the notebooks are rather
-terse and not entirely self-contained; if you want to see that version, it can
-be found in the version control history of these files.
+library in [`../../datasets/mnist`](../../datasets/mnist) as well as the model
+definition into [`lenet.py`](lenet.py) for easier reuse of common functionality
+and to avoid code duplication. Thus, the notebooks are rather terse and not
+entirely self-contained; if you want to see that version, it can be found in the
+version control history of these files.
 
 
 [sigmoid-fn]: https://keras.io/api/layers/activations/#sigmoid-function
