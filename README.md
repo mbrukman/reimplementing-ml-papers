@@ -1,5 +1,10 @@
 # Reimplementing ML papers
 
+[![Checks & tests status][ci-badge]][ci-url]
+
+[ci-badge]: https://github.com/mbrukman/reimplementing-ml-papers/actions/workflows/main.yml/badge.svg?query=branch%3Amain
+[ci-url]: https://github.com/mbrukman/reimplementing-ml-papers/actions/workflows/main.yml?query=branch%3Amain
+
 The goal of this project is to reimplement various ML papers, learn about ML
 model architectures and libraries, and see how close we can get to published
 results.
