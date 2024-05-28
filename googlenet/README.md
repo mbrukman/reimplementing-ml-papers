@@ -12,13 +12,7 @@ and implement the network. See the directory's documentation for details.
 
 Available implementations:
 
-|      | Description    | Library | Notebook |
-|:----:| -------------- |:-------:|:--------:|
-|  v1  | Basic impl     |  Keras  | [![View on GitHub][github-badge]][github-basic] [![Open In Colab][colab-badge]][colab-basic] [![Open in Binder][binder-badge]][binder-basic] |
-
-Implementation notes for v1:
-
-1. We haven't yet trained or tested this network (work in progress).
+* [Keras](keras)
 
 Our implementation is based on the following paper:
 
@@ -35,14 +29,6 @@ You can access this paper via:
 See also:
 
 * [Papers with Code][pwc-googlenet]
-
-[github-badge]: https://img.shields.io/badge/View-on%20GitHub-blue?logo=GitHub
-[colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
-[binder-badge]: https://static.mybinder.org/badge_logo.svg
-
-[github-basic]: GoogLeNet_implementation_in_Keras.ipynb
-[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/googlenet/GoogLeNet_implementation_in_Keras.ipynb
-[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=googlenet/GoogLeNet_implementation_in_Keras.ipynb
 
 [arxiv-googlenet]: https://arxiv.org/abs/1409.4842
 [scholar-googlenet]: https://scholar.google.com/scholar_lookup?arxiv_id=1409.4842
