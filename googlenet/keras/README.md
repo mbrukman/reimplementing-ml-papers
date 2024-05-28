@@ -14,6 +14,6 @@ Implementation notes for v1:
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [binder-badge]: https://static.mybinder.org/badge_logo.svg
 
-[github-basic]: GoogLeNet_implementation_in_Keras.ipynb
-[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/googlenet/keras/GoogLeNet_implementation_in_Keras.ipynb
-[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=googlenet/keras/GoogLeNet_implementation_in_Keras.ipynb
+[github-basic]: GoogLeNet_v1.ipynb
+[colab-basic]: https://colab.research.google.com/github/mbrukman/reimplementing-ml-papers/blob/main/googlenet/keras/GoogLeNet_v1.ipynb
+[binder-basic]: https://mybinder.org/v2/gh/mbrukman/reimplementing-ml-papers/main?filepath=googlenet/keras/GoogLeNet_v1.ipynb
