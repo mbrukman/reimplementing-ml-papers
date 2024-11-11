@@ -18,6 +18,7 @@ ifeq ($(VERBOSE),1)
 endif
 
 SRC_DIR ?= .
+PYTHON_VERSION ?= $(shell python -c 'import platform; print(platform.python_version())')
 
 .PHONY: test clean
 
@@ -45,7 +46,7 @@ py-test:
 	$(VERB) $(SRC_DIR)/run_python_tests.sh
 
 mypy-test:
-	$(VERB) python -m mypy --ignore-missing-imports `find . -name 'third_party' -prune -o -name '*.py' -print`
+	$(VERB) python -m mypy --python-version=$(PYTHON_VERSION) --ignore-missing-imports `find . -name 'third_party' -prune -o -name '*.py' -print`
 
 pytype-test:
-	$(VERB) python -m pytype -k `find . -name 'third_party' -prune -o -name '*.py' -print`
+	$(VERB) python -m pytype --python-version=$(PYTHON_VERSION) -k `find . -name 'third_party' -prune -o -name '*.py' -print`
