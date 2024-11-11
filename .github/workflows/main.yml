@@ -63,6 +63,9 @@ jobs:
           python-version: ${{ matrix.python }}
           cache: 'pip'
 
+      - name: Update pip
+        run: python -m pip install --upgrade pip
+
       - name: Install Python core deps (3.8 — 3.11)
         run: python -m pip install -r requirements.txt
         if: ${{ matrix.python != '3.12' }}
