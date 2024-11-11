@@ -77,13 +77,13 @@ jobs:
         if: ${{ matrix.python == '3.12' }}
 
       - name: Run Python tests
-        run: make py-test
+        run: make py-test VERBOSE=1
 
       - name: Check types with Mypy
-        run: make mypy-test
+        run: make mypy-test PYTHON_VERSION=${{ matrix.python }} VERBOSE=1
 
       - name: Check types with PyType
-        run: make pytype-test
+        run: make pytype-test PYTHON_VERSION=${{ matrix.python }} VERBOSE=1
         # https://github.com/google/pytype/issues/1475
         #
         # PyType does not yet support Python 3.12; if this step is enabled, it
